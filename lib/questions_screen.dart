@@ -24,15 +24,8 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
             ),
           ),
           const SizedBox(height: 60),
-          Button(
-            onPressed: () {},
-            label: 'Option 1',
-          ),
-          Button(
-            onPressed: () {},
-            label: 'Option 1',
-            backgroundColor: Colors.lightBlueAccent,
-          ),
+          Button(onPressed: () {}, label: 'Option 1'),
+          Button(onPressed: () {}, label: 'Option 1'),
           Button(onPressed: () {}, label: 'Option 1')
         ],
       ),

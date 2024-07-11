@@ -38,6 +38,10 @@ class StartScreen extends StatelessWidget {
           Button(
             onPressed: onPressStart,
             label: 'Start',
+            icon: Icons.arrow_forward,
+            borderRadius: 16,
+            backgroundColor: Colors.transparent,
+            borderColor: Colors.white,
           )
         ],
       ),

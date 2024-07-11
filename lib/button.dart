@@ -5,30 +5,44 @@ class Button extends StatelessWidget {
     super.key,
     required this.onPressed,
     required this.label,
-    this.icon = Icons.arrow_right_alt,
+    this.icon,
+    this.labelColor = Colors.white,
+    this.iconColor = Colors.white,
+    this.borderColor = Colors.transparent,
+    this.backgroundColor = Colors.lightBlueAccent,
+    this.borderRadius = 8,
   });
 
   final void Function() onPressed;
   final String label;
-  final IconData icon;
+  final IconData? icon;
+  final Color labelColor;
+  final Color iconColor;
+  final Color borderColor;
+  final Color backgroundColor;
+  final double borderRadius;
 
   @override
   Widget build(BuildContext context) {
     return OutlinedButton.icon(
       onPressed: onPressed,
       style: OutlinedButton.styleFrom(
-        foregroundColor: const Color.fromARGB(255, 138, 149, 155),
+        backgroundColor: backgroundColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(borderRadius),
+        ),
+        side: BorderSide(width: 1, color: borderColor),
       ),
       icon: Icon(
         icon,
-        color: Colors.white,
+        color: iconColor,
+        size: icon != null ? 20 : 0,
       ),
       label: Text(
         label,
-        style: const TextStyle(
+        style: TextStyle(
           fontSize: 20,
-          fontWeight: FontWeight.bold,
-          color: Colors.white,
+          color: labelColor,
         ),
       ),
     );

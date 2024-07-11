@@ -1,61 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/questions_screen.dart';
+import 'package:quiz_app/start_screen.dart';
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
   const App({super.key});
+
+  @override
+  State<App> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  Widget? activeScreen;
+
+  @override
+  void initState() {
+    activeScreen = StartScreen(onPressStart: switchScreen);
+    super.initState();
+  }
+
+  void switchScreen() {
+    setState(() {
+      activeScreen = const QuestionsScreen();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-          backgroundColor: Colors.blueGrey,
-          body: Container(
-              margin: const EdgeInsets.only(top: 100, bottom: 80),
-              child: Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Opacity(
-                      opacity: 0.6,
-                      child: Image.asset(
-                        'assets/images/quiz-logo.png',
-                        width: 200,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 80,
-                    ),
-                    const Text(
-                      'Learn Flutter Easy',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 24,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 120,
-                    ),
-                    OutlinedButton.icon(
-                      onPressed: () {},
-                      style: OutlinedButton.styleFrom(
-                        foregroundColor:
-                            const Color.fromARGB(255, 138, 149, 155),
-                      ),
-                      icon: const Icon(
-                        Icons.arrow_right_alt,
-                        color: Colors.white,
-                      ),
-                      label: const Text(
-                        'Start',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ))),
+        backgroundColor: Colors.blueGrey,
+        body: Container(
+          margin: const EdgeInsets.only(top: 100, bottom: 80),
+          child: activeScreen,
+        ),
+      ),
     );
   }
 }

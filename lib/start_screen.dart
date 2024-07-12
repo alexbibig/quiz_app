@@ -5,10 +5,10 @@ import 'package:quiz_app/button.dart';
 class StartScreen extends StatelessWidget {
   const StartScreen({
     super.key,
-    required this.onPressStart,
+    required this.handlePressStart,
   });
 
-  final void Function() onPressStart;
+  final void Function() handlePressStart;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class StartScreen extends StatelessWidget {
             height: 120,
           ),
           Button(
-            onPressed: onPressStart,
+            onPressed: handlePressStart,
             label: 'Start',
             icon: Icons.arrow_forward,
             borderRadius: 16,

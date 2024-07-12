@@ -27,7 +27,7 @@ class Button extends StatelessWidget {
     return OutlinedButton.icon(
       onPressed: onPressed,
       style: OutlinedButton.styleFrom(
-        padding: EdgeInsets.symmetric(horizontal: 32, vertical: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
         backgroundColor: backgroundColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(borderRadius),
@@ -45,6 +45,7 @@ class Button extends StatelessWidget {
           fontSize: 20,
           color: labelColor,
         ),
+        textAlign: TextAlign.center,
       ),
     );
   }
